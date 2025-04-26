@@ -31,7 +31,7 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.my_vpc.id 
   
   route {
-    cidr_block = "0.0.0.0/16"
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id 
   }
 
@@ -95,7 +95,7 @@ resource "aws_instance" "web" {
   subnet_id = aws_subnet.public.id 
   vpc_security_group_ids = [aws_security_group.ssh.id]
   associate_public_ip_address = true
-  key_name = "key-029553d6abd25f557" 
+  key_name = "my-key" 
 
 
   tags = {
